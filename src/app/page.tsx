@@ -74,9 +74,6 @@ export default function SPAHome() {
   const searchParams = useSearchParams();
   const canvasId = searchParams.get('canvasId') || 'root';
 
-  /** * 【修正ポイント】 ジェネリクス <Node>, <Edge> を追加して 
-   * never[] 型になるのを防ぎます
-   */
   const [nodes, setNodes, onNodesChange] = useNodesState<Node>([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState<Edge>([]);
   
@@ -87,7 +84,6 @@ export default function SPAHome() {
       // getLayoutedElements を実行
       const layoutedNodes = await getLayoutedElements(data.nodes, data.edges);
       
-      // ここでの型エラーが消えるはずです
       setNodes(layoutedNodes);
       setEdges(data.edges);
       

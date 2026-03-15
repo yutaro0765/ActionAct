@@ -5,7 +5,7 @@ export const mockOrganizeService: OrganizePort = {
   subscribeTree: (canvasId, onUpdate) => {
     console.log(`[Mock] Subscribing to: ${canvasId}`);
 
-    // IDに基づいて「デモ映え」するデータを生成
+    // IDに基づいてデータを生成
     const isRoot = canvasId === 'root';
     const data: CanvasData = {
       nodes: [
